@@ -19,6 +19,7 @@ const VerifyToken = (req, res) => {
 }
 
 const ReceivedMessage = (req,res) => {
+    console.log(res.body)
     res.send('Hola Received');
 }
 
