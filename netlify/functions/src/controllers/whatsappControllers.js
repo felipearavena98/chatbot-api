@@ -45,10 +45,10 @@ const ReceivedMessage = (req, res) => {
 };
 
 function GetTextUser(messages) {
-    let text = '';
+    let text = "";
     let typeMessage = messages["type"];
     if(typeMessage == "text"){
-        text(messages["text"])["body"];
+        text = (messages["text"])["body"];
     } else if (typeMessage == "interactive") {
         let interactiveObject = messages["interactive"];
         let typeInteractive = interactiveObject["type"];
