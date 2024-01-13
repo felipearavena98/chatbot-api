@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const whatsappService = require('../services/whatsappService');
 
 // Utiliza el directorio /tmp para los logs en el entorno serverless
 const logFilePath = path.join('/tmp', 'logs.txt');
@@ -33,10 +34,14 @@ const ReceivedMessage = (req, res) => {
 
         if(typeof messageObject != "undefined") {
             let messages = messageObject[0];
+            let phoneNumber = messages["from"];
             let text = GetTextUser(messages);
     
+
             myConsole.log(text);
             console.log(text);
+
+            whatsappService.SendMessageWhatsApp("El usuario dijo: " + text, phoneNumber);
         }
 
         res.send("EVENT_RECEIVED");
