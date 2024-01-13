@@ -5,7 +5,7 @@ function SendMessageWhatsApp(textResponse, number){
         "messaging_product": "whatsapp",
         "to": number,
         "text": {
-            "body": "Hola Usuario"
+            "body": textResponse
         },
         "type": "text"
     })
