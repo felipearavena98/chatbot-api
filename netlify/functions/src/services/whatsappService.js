@@ -4,12 +4,11 @@
         try {
             const data = JSON.stringify({
                 "messaging_product": "whatsapp",    
-                "recipient_type": "individual",
-                "to": "56974877680",
+                "to": number,
                 "type": "text",
                 "text": {
                     "preview_url": false,
-                    "body": "Hola, Bienvenido"
+                    "body": text
                 }
             });
 
@@ -18,7 +17,7 @@
         console.log('Paso 1')
             const options = {
                 host: "graph.facebook.com",
-                path: "/v18.0/166650459868747/messages",
+                path: "/v17.0/166650459868747/messages",
                 method: "POST",
                 body: data,
                 headers: {
