@@ -32,7 +32,9 @@ console.log('Paso 1')
     });
     console.log('Paso 4')
     req.write(data);
+    console.log('Paso 5')
     req.end();
+    console.log('Paso 6')
 
 }
 

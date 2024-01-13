@@ -46,7 +46,9 @@ const ReceivedMessage = (req, res) => {
             whatsappService.SendMessageWhatsApp("El usuario dijo: " + text, phoneNumber);
         }
 
+        console.log('Sale del if');
         res.send("EVENT_RECEIVED");
+        console.log('pasa el event');
     } catch (e) {
         myConsole.log(e);
         console.log('ReceivedMessage', e)
