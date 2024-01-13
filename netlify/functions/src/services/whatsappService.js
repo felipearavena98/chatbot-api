@@ -41,6 +41,15 @@
             console.log('Paso 5')
             req.end();
             console.log('Paso 6')
+            req.on('response', res => {
+                let data = '';
+                res.on('data', chunk => {
+                    data += chunk;
+                });
+                res.on('end', () => {
+                    console.log('Respuesta del servidor:', data);
+                });
+            });
     
         } catch (error) {
             console.log(error);
