@@ -3,7 +3,7 @@
     function SendMessageWhatsApp(textResponse, phoneNumber){
         try {
             const data = JSON.stringify({
-                "messaging_product": "whatsapp",
+                "messaging_product": "whatsapps",
                 "to": phoneNumber,
                 "text": {
                     "body": textResponse
