@@ -35,6 +35,7 @@ const ReceivedMessage = (req, res) => {
         if(typeof messageObject != "undefined") {
             let messages = messageObject[0];
             let phoneNumber = messages["from"];
+            console.log(phoneNumber)
             let text = GetTextUser(messages);
     
 
