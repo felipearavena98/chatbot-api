@@ -24,36 +24,30 @@
                     Authorization: "Bearer EAAMYnEKWwo4BOzF0rS9EbN6XUENt11Cmr1q5DcFFaYz4eznjJ9jdRFuOOqyMKSfgxhVrwnF0Nm1QlMh2C2X4EH5342S3sMB0xahZBLeUR9aq84P5Q1TIhMxOVzLKaMTWPh4kSZAcTPIEyWQwGbonWvZBZAxSFxQ0DYMGBQzSDZBmER1whpIzOxo2nXjrZBzsxB"
                 }
             }
-            console.log('OPTIONS: ',options);
-            console.log('Paso 2')
-            const req = https.request(options, res => {
-                res.on("data", d=> {
-                    process.stdout.write(d);
-                });
+            console.log('OPTIONS: ', options);
+
+        const req = https.request(options, res => {
+            let responseData = '';
+            res.on("data", d => {
+                responseData += d;
             });
-            console.log('REQ', req);
-            console.log('Paso 3')
-            req.on("error", error => {
-                console.error(error);
+            res.on('end', () => {
+                console.log('Respuesta del servidor:', responseData);
             });
-            console.log('Paso 4')
-            req.write(data);
-            console.log('Paso 5')
-            req.end();
-            console.log('Paso 6')
-            req.on('response', res => {
-                let data = '';
-                res.on('data', chunk => {
-                    data += chunk;
-                });
-                res.on('end', () => {
-                    console.log('Respuesta del servidor:', data);
-                });
-            });
-    
-        } catch (error) {
-            console.log(error);
-        }
+        });
+
+        req.on("error", error => {
+            console.error('Error en la solicitud:', error);
+        });
+
+        req.write(data);
+        req.end();
+
+        console.log('Solicitud enviada');
+
+    } catch (error) {
+        console.log('Error en SendMessageWhatsApp:', error);
+    }
         
     }
 
