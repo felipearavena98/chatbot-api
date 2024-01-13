@@ -3,12 +3,14 @@
     function SendMessageWhatsApp(text, number){
         try {
             const data = JSON.stringify({
-                "messaging_product": "whatsapp",
-                "to": number,
+                "messaging_product": "whatsapp",    
+                "recipient_type": "individual",
+                "to": "56974877680",
+                "type": "text",
                 "text": {
-                    "body": text
-                },
-                "type": "text"
+                    "preview_url": false,
+                    "body": "Hola, Bienvenido"
+                }
             });
 
             console.log('data :',data);
