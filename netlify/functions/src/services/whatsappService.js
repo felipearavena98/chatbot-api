@@ -9,7 +9,10 @@
                     "body": textResponse
                 },
                 "type": "text"
-            })
+            });
+
+            console.log('data :',data);
+
         console.log('Paso 1')
             const options = {
                 host: "graph.facebook.com",
