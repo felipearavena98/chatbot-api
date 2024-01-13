@@ -56,29 +56,32 @@ const ReceivedMessage = (req, res) => {
     }
 };
 
-function GetTextUser(messages) {
-    let text = "";
-    let typeMessage = messages["type"];
-    if(typeMessage == "text"){
+function GetTextUser(messages){
+    var text = "";
+    var typeMessge = messages["type"];
+    if(typeMessge == "text"){
         text = (messages["text"])["body"];
-    } else if (typeMessage == "interactive") {
-        let interactiveObject = messages["interactive"];
-        let typeInteractive = interactiveObject["type"];
-        
-        if(typeInteractive == "button_reply") {
+    }
+    else if(typeMessge == "interactive"){
+
+
+        var interactiveObject = messages["interactive"];
+        var typeInteractive = interactiveObject["type"];
+       
+        if(typeInteractive == "button_reply"){
             text = (interactiveObject["button_reply"])["title"];
-        } else if (typeInteractive == "list_reply"){
-            text = (interactiveObject["list_reply"])["title"];
-        } else {
-            myConsole.log("sin mensaje");
-            console.log("sin mensaje")
         }
-    } else {
+        else if(typeInteractive == "list_reply"){
+            text = (interactiveObject["list_reply"])["title"];
+        }else{
+            myConsole.log("sin mensaje");
+        }
+    }else{
         myConsole.log("sin mensaje");
-        console.log("sin mensaje")
     }
     return text;
 }
+
 
 module.exports = {
     VerifyToken,
