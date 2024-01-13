@@ -34,16 +34,16 @@ const ReceivedMessage = (req, res) => {
 
         if(typeof messageObject != "undefined") {
             let messages = messageObject[0];
-            let phoneNumber = messages["from"];
-            phoneNumber = phoneNumber.replace('569','56');
-            console.log('NUMERO: ' + phoneNumber)
+            let number = messages["from"];
+            // phoneNumber = phoneNumber.replace('569','56');
+            console.log('NUMERO: ' + number)
             let text = GetTextUser(messages);
             
 
             myConsole.log(text);
             console.log(text);
 
-            whatsappService.SendMessageWhatsApp(text, phoneNumber);
+            whatsappService.SendMessageWhatsApp(text, number);
             console.log('Paso');
         }
 
