@@ -17,7 +17,7 @@ console.log('Paso 1')
         body: data,
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.authToken}`
+            Authorization: "Bearer EAAMYnEKWwo4BOzF0rS9EbN6XUENt11Cmr1q5DcFFaYz4eznjJ9jdRFuOOqyMKSfgxhVrwnF0Nm1QlMh2C2X4EH5342S3sMB0xahZBLeUR9aq84P5Q1TIhMxOVzLKaMTWPh4kSZAcTPIEyWQwGbonWvZBZAxSFxQ0DYMGBQzSDZBmER1whpIzOxo2nXjrZBzsxB"
         }
     }
     console.log('Paso 2')

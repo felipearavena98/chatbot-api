@@ -37,7 +37,7 @@ const ReceivedMessage = (req, res) => {
             let phoneNumber = messages["from"];
             console.log(phoneNumber)
             let text = GetTextUser(messages);
-    
+            
 
             myConsole.log(text);
             console.log(text);
