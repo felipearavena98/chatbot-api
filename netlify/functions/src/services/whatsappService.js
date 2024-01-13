@@ -24,12 +24,14 @@
                     Authorization: "Bearer EAAMYnEKWwo4BOzF0rS9EbN6XUENt11Cmr1q5DcFFaYz4eznjJ9jdRFuOOqyMKSfgxhVrwnF0Nm1QlMh2C2X4EH5342S3sMB0xahZBLeUR9aq84P5Q1TIhMxOVzLKaMTWPh4kSZAcTPIEyWQwGbonWvZBZAxSFxQ0DYMGBQzSDZBmER1whpIzOxo2nXjrZBzsxB"
                 }
             }
+            console.log('OPTIONS: ',options);
             console.log('Paso 2')
             const req = https.request(options, res => {
                 res.on("data", d=> {
                     process.stdout.write(d);
                 });
             });
+            console.log('REQ', req);
             console.log('Paso 3')
             req.on("error", error => {
                 console.error(error);
