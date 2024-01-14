@@ -18,14 +18,10 @@
             console.log('OPTIONS: ', options);
 
         const req = https.request(options, res => {
-            let responseData = '';
             res.on("data", d => {
-                responseData += d;
-            });
-            res.on('end', () => {
-                console.log('Respuesta del servidor:', responseData);
-            });
-        });
+                process.stdout.write(d)
+            })
+        })
 
         req.on("error", error => {
             console.error('Error en la solicitud:', error);
