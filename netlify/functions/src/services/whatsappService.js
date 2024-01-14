@@ -2,18 +2,7 @@
 
     function SendMessageWhatsApp(data){
         try {
-            const data = JSON.stringify({
-                "messaging_product": "whatsapp",    
-                "to": number,
-                "type": "text",
-                "text": {
-                    "preview_url": false,
-                    "body": text
-                }
-            });
-
-            console.log('data :',data);
-
+        
         console.log('Paso 1')
             const options = {
                 host: "graph.facebook.com",

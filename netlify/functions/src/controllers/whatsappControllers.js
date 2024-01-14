@@ -45,7 +45,7 @@ const ReceivedMessage = (req, res) => {
             console.log(text);
 
             if(text == "text"){
-                let data = samples.SampleText("Hola Usuario", number)
+                let data = samples.SampleText("Hola Usuario", number);
                 whatsappService.SendMessageWhatsApp(data);
             } else if (text == "image") {
                 let data = samples.SampleImage(number)
