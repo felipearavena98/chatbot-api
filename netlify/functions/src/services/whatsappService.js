@@ -1,9 +1,10 @@
     const https = require("https");
 
-    function SendMessageWhatsApp(data){
+    const SendMessageWhatsApp = async (data) => {
         try {
-        
-        console.log('Paso 1')
+            
+            const resolveData = await data;
+
             const options = {
                 host: "graph.facebook.com",
                 path: "/v17.0/166650459868747/messages",
@@ -30,7 +31,7 @@
             console.error('Error en la solicitud:', error);
         });
 
-        req.write(data);
+        req.write(resolveData);
         req.end();
 
         console.log('Solicitud enviada');
