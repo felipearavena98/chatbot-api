@@ -5,5 +5,5 @@
   force = true
   from = "/api/*"
   status = 200
-  to = "/.netlify/functions/index/:splat"
+  to = "/.netlify/functions/api/:splat"
   headers = { Access-Control-Allow-Origin = "*" }
