@@ -1,42 +1,31 @@
+const fs = require("fs");
+const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const https = require("https");
-
-const SendMessageWhatsApp = (data) => {
-    try {
-        const jsonData = JSON.stringify(data);
-
-        const options = {
-            host: "graph.facebook.com",
-            path: "/v17.0/166650459868747/messages",
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer EAAMYnEKWwo4BO4YgOxIMMFbZCAfwlJpLq78am3rzSt0XMe1FtZCuqy3WlOfZAHbgZBwO5e851kIR3dXjAZB015RuBU48AhTy9tx73u2P0tYVWm4SE3diw4wsvhyYUMPC2k5FiQhAdzNd8RZBwy2b6iJbLdH9dxd7gcvCbvDolVNwxtCp1gw0uyoTMBmRjVLy7JjIM1cldngKYf5WBvRmiiSKDa3MgZD"
-            }
-        };
-
-        const req = https.request(options, res => {
-            let responseData = '';
-            res.on("data", chunk => {
-                responseData += chunk;
-            });
-            res.on('end', () => {
-                console.log('Respuesta del servidor:', responseData);
-            });
+function SendMessageWhatsApp(data){
+    
+    const options = {
+        host: "graph.facebook.com",
+        path: "/v18.0/166650459868747/messages",
+        method: "POST",
+        body: data,
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer EAAMYnEKWwo4BOzF0rS9EbN6XUENt11Cmr1q5DcFFaYz4eznjJ9jdRFuOOqyMKSfgxhVrwnF0Nm1QlMh2C2X4EH5342S3sMB0xahZBLeUR9aq84P5Q1TIhMxOVzLKaMTWPh4kSZAcTPIEyWQwGbonWvZBZAxSFxQ0DYMGBQzSDZBmER1whpIzOxo2nXjrZBzsxB"
+        }
+    };
+    const req = https.request(options, res => {
+        res.on("data", d=> {
+            process.stdout.write(d);
         });
+    });
 
-        req.on("error", error => {
-            console.error('Error en la solicitud:', error);
-        });
+    req.on("error", error => {
+        console.error(error);
+    });
 
-        req.write(jsonData);
-        req.end();
-
-        console.log('Solicitud enviada');
-
-    } catch (error) {
-        console.error('Error en SendMessageWhatsApp:', error);
-    }
-};
+    req.write(data);
+    req.end();
+}
 
 module.exports = {
     SendMessageWhatsApp

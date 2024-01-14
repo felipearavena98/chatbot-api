@@ -1,8 +1,9 @@
-function SampleText(textResponse, number){
+function MessageText(textResponse, number){
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "to": number,    
         "text": {
+            "preview_url": true,
             "body": textResponse
         },
         "type": "text"
@@ -10,88 +11,7 @@ function SampleText(textResponse, number){
     return data;
 }
 
-function SampleImage(number){
-    const data = JSON.stringify({
-        "messaging_product": "whatsapp",
-        "to": number,
-        "type": "image",  
-        "image": {
-            "link": "https://file-examples.com/storage/fe7d3a0d44631509da1f416/2017/10/file_example_PNG_500kB.png"
-        }        
-    });
-    return data;
-}
-
-function SampleAudio(number){
-    const data = JSON.stringify({
-        "messaging_product": "whatsapp",
-        "to": number,
-        "type": "audio",  
-        "audio": {
-            "link": "https://file-examples.com/storage/fe7d3a0d44631509da1f416/2017/11/file_example_MP3_700KB.mp3"
-        }        
-    });
-    return data;
-}
-
-function SampleVideo(number){
-    const data = JSON.stringify({
-        "messaging_product": "whatsapp",
-        "to": number,
-        "type": "video",  
-        "video": {
-            "link": "https://file-examples.com/storage/fe7d3a0d44631509da1f416/2017/04/file_example_MP4_480_1_5MG.mp4"
-        }        
-    });
-    return data;
-}
-
-function SampleDocument(number){
-    const data = JSON.stringify({
-        "messaging_product": "whatsapp",
-        "to": number,
-        "type": "document",  
-        "document": {
-            "link": "https://icseindia.org/document/sample.pdf"
-        }        
-    });
-    return data;
-}
-
-function SampleButtons(number){
-    const data = JSON.stringify({
-        "messaging_product": "whatsapp",
-        "to": number,
-        "type": "interactive",  
-        "interactive": {
-            "type": "button",
-            "body": {
-                "text": "¿Confirmas tu registro?"
-            },
-            "action": {
-                "buttons": [
-                    {
-                        "type": "reply",
-                        "reply": {
-                            "id": "001",
-                            "title": "Sí"
-                        }
-                    },
-                    {
-                        "type": "reply",
-                        "reply": {
-                            "id": "002",
-                            "title": "No"
-                        }
-                    }
-                ]
-            }
-        }     
-    });
-    return data;
-}
-
-function SampleList(number){
+function MessageList(number){
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "to": number,
@@ -143,8 +63,40 @@ function SampleList(number){
     });
     return data;
 }
+function MessageComprar(number){
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "interactive",  
+        "interactive": {
+            "type": "button",
+            "body": {
+                "text": "Selecciona uno de los productos"
+            },
+            "action": {
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "option-laptop",
+                            "title": "Laptop"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "id": "option-computadora",
+                            "title": "Computadora"
+                        }
+                    }
+                ]
+            }
+        }     
+    });
+    return data;
+}
 
-function SampleLocation(number){
+function MessageLocation(number){
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "to": number,
@@ -161,12 +113,8 @@ function SampleLocation(number){
 }
 
 module.exports = {
-SampleText,
-SampleImage,
-SampleAudio,
-SampleVideo,
-SampleDocument,
-SampleButtons,
-SampleList,
-SampleLocation
+MessageText,
+MessageList,
+MessageComprar,
+MessageLocation
 };
