@@ -1,12 +1,20 @@
+// YOUR_BASE_DIRECTORY/netlify/functions/api.ts
+
 const express = require("express");
-const apiRoute = require("./src/routes/routes")
+const  serverless = require("serverless-http");
+
+const apiRoute = require('./src/routes/routes');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
-
 app.use(express.json());
+app.use('/api', apiRoute); 
 
-app.use("/api", apiRoute);
+// const api = express();
 
-app.listen(PORT, () => {console.log("el puerto es: " + PORT)});
+// const router = Router();
+// router.get("/hello", (req, res) => res.send("Hello World!"));
+
+// api.use("/api/", router);
+
+export const handler = serverless(app);
