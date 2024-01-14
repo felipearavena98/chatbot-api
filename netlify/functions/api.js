@@ -2,7 +2,7 @@
 
 const express = require("express");
 const  serverless = require("serverless-http");
-
+const cors = require('cors');
 const apiRoute = require('./src/routes/routes');
 
 const app = express();
@@ -11,7 +11,7 @@ const corsOptions = {
     origin: 'https://graph.facebook.com',
   };
   
-  app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use('/api', apiRoute); 
