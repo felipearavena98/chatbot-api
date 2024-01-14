@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const whatsappService = require('../services/whatsappService');
+const samples = require('../shared/sampleModels');
 
 // Utiliza el directorio /tmp para los logs en el entorno serverless
 const logFilePath = path.join('/tmp', 'logs.txt');
@@ -34,16 +35,44 @@ const ReceivedMessage = (req, res) => {
 
         if(typeof messageObject != "undefined") {
             let messages = messageObject[0];
-            let text = GetTextUser(messages);
             let number = messages["from"];
+            let text = GetTextUser(messages);
+            
             // phoneNumber = phoneNumber.replace('569','56');
             console.log('NUMERO: ' + number)
             
             myConsole.log(text);
             console.log(text);
 
-            whatsappService.SendMessageWhatsApp(text, number);
-            console.log('Paso');
+            if(text == "text"){
+                let data = samples.SampleText("Hola Usuario", number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "image") {
+                let data = samples.SampleImage(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "video") {
+                let data = samples.SampleVideo(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "audio") {
+                let data = samples.SampleAudio(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "document") {
+                let data = samples.SampleDocument(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "button") {
+                let data = samples.SampleButtons(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "list") {
+                let data = samples.SampleList(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else if (text == "location") {
+                let data = samples.SampleLocation(number)
+                whatsappService.SendMessageWhatsApp(data);
+            } else {
+                let data = samples.SampleText("No te entiendo", number)
+                whatsappService.SendMessageWhatsApp(data);
+            }
+
         }
 
         res.send("EVENT_RECEIVED");
