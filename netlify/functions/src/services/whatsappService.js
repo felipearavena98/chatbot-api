@@ -10,7 +10,7 @@ const SendMessageWhatsApp = (data) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer TU_TOKEN_DE_ACCESO"
+                Authorization: "Bearer EAAMYnEKWwo4BO4YgOxIMMFbZCAfwlJpLq78am3rzSt0XMe1FtZCuqy3WlOfZAHbgZBwO5e851kIR3dXjAZB015RuBU48AhTy9tx73u2P0tYVWm4SE3diw4wsvhyYUMPC2k5FiQhAdzNd8RZBwy2b6iJbLdH9dxd7gcvCbvDolVNwxtCp1gw0uyoTMBmRjVLy7JjIM1cldngKYf5WBvRmiiSKDa3MgZD"
             }
         };
 
