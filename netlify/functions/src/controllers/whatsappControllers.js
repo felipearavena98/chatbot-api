@@ -1,5 +1,5 @@
 const fs = require("fs");
-const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
+// const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const processMessage = require("../shared/processMessage");
 const VerifyToken = (req, res) => {
     
@@ -40,7 +40,8 @@ const ReceivedMessage = (req, res) => {
 
         res.send("EVENT_RECEIVED");
     }catch(e){
-        myConsole.log(e);
+        // myConsole.log(e);
+        console.log(e)
         res.send("EVENT_RECEIVED");
     }
 }
@@ -62,10 +63,11 @@ function GetTextUser(messages){
         else if(typeInteractive == "list_reply"){
             text = (interactiveObject["list_reply"])["title"];
         }else{
-            myConsole.log("sin mensaje");
+            console.log("sin mensaje");
+            
         }
     }else{
-        myConsole.log("sin mensaje");
+        console.log("sin mensaje");
     }
     return text;
 }
