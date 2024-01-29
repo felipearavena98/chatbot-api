@@ -35,7 +35,7 @@ function Process(textUser, number){
     }
     else if(textUser.includes("vender")){
         // vender
-        var model = whatsappModel.MessageText("👉 Regístrate en el siguiente formulario para poder evaluarte: https://form.jotform.com/222507994363665", number);
+        var model = whatsappModel.MessageText("👉 En estos momentos no tenemos productos disponibles. ", number);
         models.push(model);       
 
     }
@@ -49,7 +49,7 @@ function Process(textUser, number){
     }
     else if(textUser.includes("contacto")){
         // vender
-        var model = whatsappModel.MessageText("📞*Centro de contacto:*\n912345678", number);
+        var model = whatsappModel.MessageText("📞*Centro de contacto:*\n974877680", number);
         models.push(model);       
 
     }

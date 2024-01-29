@@ -150,10 +150,10 @@ function SampleLocation(number){
         "to": number,
         "type": "location",
         "location": {
-        "latitude": "-12.067158831865067",
-        "longitude": "-77.03377940839486",
-        "name": "Estadio Nacional del Perú",
-        "address": "C. José Díaz s/n, Cercado de Lima 15046"
+        "latitude": "-38.4372985",
+        "longitude": "-71.8883419",
+        "name": "Plaza de Curacautín",
+        "address": "O'Higgins, Curacautin, Curacautín, Araucanía"
     }
         
     });
